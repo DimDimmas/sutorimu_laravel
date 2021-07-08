@@ -96,29 +96,5 @@
           </div>
 
         <script src="assets/js/jquery-3.5.1.min.js"></script>
-        <script type="text/javascript">
-          $(document).on("click", "#edit_grn", function(){
-            var idgrn = $(this).data('id');
-            var titlegrn = $(this).data('genre');
-            $("#modal-edit #id_grn").val(idgrn);
-            $("#modal-edit #title_grn").val(titlegrn);
-          })
-
-          $(document).ready(function(e){
-            $("#form").on("submit", (function(e) {
-              e.preventDefault();
-              $.ajax({
-                url : 'models/proses_edit_genre.php',
-                type : 'POST',
-                data : new FormData(this),
-                contentType : false,
-                cache : false,
-                processData : false,
-                success : function(msg) {
-                  $('.table').html(msg);
-                }
-              });
-            }));
-          })          
-        </script>
+       
       </div>

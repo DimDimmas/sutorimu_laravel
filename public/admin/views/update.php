@@ -28,11 +28,11 @@
         </thead>
         <tbody>
           <tr>
-            <th scope="row"><?php echo $no++ ?></th>
-            <td><?php echo $data->title_list; ?></td>
-            <td><?php echo $data->episode; ?></td>
-            <td><img src="assets/img/preview/<?php echo $data->preview ?>" width="80px" alt="Previous Image"></td>
-            <td><?php echo $data->embed_link; ?></td>
+            <th scope="row"></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
             <td><center><a id="edit_upd" data-id="<?php echo $data->no; ?>" data-title="<?php echo $data->title_list; ?>"
             data-episode="<?php echo $data->episode; ?>" data-prv="<?php echo $data->preview; ?>" data-embed="<?php echo $data->embed_link; ?>" data-bs-toggle="modal" data-bs-target="#edit">
               <button class="btn btn-dark"><i class="fas fa-pen edit"></i></button></a></center></td>

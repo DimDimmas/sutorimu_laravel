@@ -34,43 +34,20 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row"><?php echo$no++; ?></th>
-                <td scope="row"><?php echo $data->title_list; ?></td>
-                <td scope="row"><?php echo $data->rate; ?></td>
-                <td scope="row"><?php echo $data->status; ?></td>
-                <td scope="row"><img src="assets/img/cover/<?php echo $data->cover_image; ?>" width="70px" alt=""></td>
-                <td scope="row"><?php echo $data->type; ?></td>
-                <td scope="row"><?php echo $data->total_episode; ?></td>
-                <td scope="row"><?php echo $data->aired; ?></td>
-                <td scope="row"><?php echo $data->duration; ?></td>
-                <td scope="row">
-                  <?php
-                    $kalimat= $data->synopsis;
-                    $huruf_maksimal=300;
-                    
-                    $result=substr($kalimat, 0, $huruf_maksimal);
-                    if(strlen($kalimat) > $huruf_maksimal){
-                      echo $result, "...";
-                    } else {
-                    echo $result;
-                    }
-                  ?>
-                </td>
-                <td scope="row"><?php echo $data->genre; ?></td>
-                <td scope="row"><a href="https://www.youtube.com/watch?v=<?php echo $data->trailer; ?>"><?php echo $data->trailer; ?></a></td>
-                <td><center><a id="edit_lst" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?php echo $data->id_list; ?>" 
-                data-title="<?php echo $data->title_list; ?>" data-rate="<?php echo $data->rate; ?>" data-status="<?php echo $data->status; ?>"
-                data-gbr="<?php echo $data->cover_image; ?>" data-type="<?php echo $data->type; ?>" data-total="<?php echo $data->total_episode; ?>"
-                data-aired="<?php echo $data->aired; ?>" data-durasi="<?php echo $data->duration; ?>" data-sinopsis="<?php echo $data->synopsis; ?>"
-                data-genre="<?php echo $data->genre; ?>" data-trailer="<?php echo $data->trailer; ?>">
-                <button class="btn btn-dark"><i class="fas fa-pen edit"></i></button>
-                </a></center></td>
-                <td scope="row"><center>
-                  <a href="?page=deletel&id=<?php echo $data->id_list; ?>" onclick="return confirm('Delete this record?')">
-                    <button type="button" class="btn btn-dark" ><i class="fa fa-trash delete" aria-hidden="true"></i></button>
-                  </a>
-                </center></td>
-              </tr>
+                <th scope="row"></th>
+                <td scope="row"></td>
+                <td scope="row"></td>
+                <td scope="row"></td>
+                <td scope="row"></td>
+                <td scope="row"></td>
+                <td scope="row"></td>
+                <td scope="row"></td>
+                <td scope="row"></td>
+                <td scope="row"></td>
+                <td scope="row"></td>
+                <td scope="row"></td>
+                <td scope="row"></td>
+              </tr
             </tbody>
           </table>
         </div>
@@ -273,49 +250,6 @@
             </div>
         </div>
         <script src="assets/js/jquery-3.5.1.min.js"></script>
-        <script type="text/javascript">
-          $(document).on("click", "#edit_lst", function(){
-            var idlist = $(this).data('id');
-            var title = $(this).data('title');
-            var rate = $(this).data('rate');
-            var status = $(this).data('status');
-            var gbrcvr = $(this).data('gbr');
-            var type = $(this).data('type');
-            var total = $(this).data('total');
-            var aired = $(this).data('aired');
-            var durasi = $(this).data('durasi');
-            var sinopsis = $(this).data('sinopsis');
-            var trailer = $(this).data('trailer');
-            $("#modal-edit #id_list").val(idlist);
-            $("#modal-edit #title").val(title);
-            $("#modal-edit #rate").val(rate);
-            $("#modal-edit #status").val(status);
-            $("#modal-edit #pict").attr("src", "assets/img/cover/"+gbrcvr);
-            $("#modal-edit #type").val(type);
-            $("#modal-edit #total").val(total);
-            $("#modal-edit #aired").val(aired);
-            $("#modal-edit #durasi").val(durasi);
-            $("#modal-edit #sinopsis").val(sinopsis);
-            $("#modal-edit #trailer").val(trailer);
-          })
-
-          $(document).ready(function(e){
-                    $("#form").on("submit", (function(e) {
-                      e.preventDefault();
-                      $.ajax({
-                        url : 'models/proses_edit_list.php',
-                        type : 'POST',
-                        data : new FormData(this),
-                        contentType : false,
-                        cache : false,
-                        processData : false,
-                        success : function(msg) {
-                          $('.table').html(msg);
-                        }
-                      });
-                    }));
-                  })
-        </script>
 
 
       </div>
