@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\GenreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +21,5 @@ Route::get('/', [HomeController::class, 'index']);
 Route::prefix('admin')
     ->group(function() {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+        Route::resource('genre', GenreController::class);
     });
