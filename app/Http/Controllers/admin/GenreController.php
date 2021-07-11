@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Genre;
 use Illuminate\Http\Request;
+use App\Http\Requests\GenreRequest;
 
 class GenreController extends Controller
 {
@@ -14,7 +16,11 @@ class GenreController extends Controller
      */
     public function index()
     {
-        return view('page.admin.genre.index');
+        $item = Genre::all();
+
+        return view('page.admin.genre.index', [
+            'items' => $item
+        ]);
     }
 
     /**
@@ -33,9 +39,12 @@ class GenreController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GenreRequest $request)
     {
-        //
+        $data = $request->all();
+
+        Genre::create($data);
+        return redirect()->route('genre.index');
     }
 
     /**
@@ -57,7 +66,11 @@ class GenreController extends Controller
      */
     public function edit($id)
     {
-        //
+        $genres = Genre::find($id);
+        return view('page.admin.genre.edit',[
+            'genres' => $genres
+        ]);
+       
     }
 
     /**
@@ -67,9 +80,13 @@ class GenreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(GenreRequest $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $item = Genre::findOrFail($id);
+        $item->update($data);
+        return redirect()->route('genre.index');
     }
 
     /**
@@ -80,6 +97,9 @@ class GenreController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Genre::find($id);
+        $item->delete();
+
+        return redirect()->route('genre.index');
     }
 }
