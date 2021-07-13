@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\GenreController;
 use App\Http\Controllers\admin\AnimeController;
 use App\Http\Controllers\admin\UpdateController;
+use App\Http\Controllers\admin\RequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,5 @@ Route::prefix('admin')
         Route::get('searcha', [AnimeController::class, 'search'])->name('list.search');
         Route::resource('update', UpdateController::class);
         Route::get('searchu', [UpdateController::class, 'search'])->name('update.search');
+        Route::resource('request', RequestController::class);
     });

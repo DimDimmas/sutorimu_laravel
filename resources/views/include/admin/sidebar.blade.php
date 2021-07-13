@@ -29,6 +29,13 @@
           " href="{{ route('genre.index') }}"><i class="fas fa-tv"></i> &nbsp; Genre</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link hover 
+          {{request()->is('admin/request') ? 'active' : ''}} 
+          {{request()->is('admin/searchr') ? 'active' : ''}}
+          {{request()->is('admin/request/create') ? 'active' : ''}}
+          " href="{{ route('request.index') }}"><i class="fa fa-sticky-note" aria-hidden="true"></i> &nbsp; Request</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link logout" href="?page=dashboard&act=logout"><i class="fa fa-power-off" aria-hidden="true"></i> &nbsp; Logout</a>
         </li>
     </ul>
