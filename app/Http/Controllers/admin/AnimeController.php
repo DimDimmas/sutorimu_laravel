@@ -105,7 +105,6 @@ class AnimeController extends Controller
             'aired' => 'required',
             'duration' => 'required',
             'synopsis' => 'required',
-            'trailer' => 'required'
         ]);
         if($request->file('cover_image') == "") {
 

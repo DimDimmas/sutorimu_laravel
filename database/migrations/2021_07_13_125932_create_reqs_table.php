@@ -15,8 +15,8 @@ class CreateReqsTable extends Migration
     {
         Schema::create('reqs', function (Blueprint $table) {
             $table->id();
-            $table->string('title_list');
-            $table->string('text');
+            $table->string('title_anime');
+            $table->text('text');
             $table->string('status');
             $table->timestamps();
         });

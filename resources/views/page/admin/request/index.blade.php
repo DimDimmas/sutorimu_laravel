@@ -37,7 +37,7 @@
                 @forelse ($request as $requests)
                 <tr>
                     <td class="text-center">{{ ++$i }}</td>
-                    <td scope="row">{{ $requests->title_list }}</td>
+                    <td scope="row">{{ $requests->title_anime }}</td>
                     <td scope="row">{{ Str::limit($requests->text, 50) }}</td>
                     <td scope="row">{{ $requests->status }}</td>
                     <form action="{{ route('request.destroy',$requests->id) }}" method="POST">
