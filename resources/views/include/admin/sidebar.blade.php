@@ -20,7 +20,7 @@
           {{request()->is('admin/list') ? 'active' : ''}} 
           {{request()->is('admin/searcha') ? 'active' : ''}}
           {{request()->is('admin/list/create') ? 'active' : ''}}
-          " href="{{ route('list.index') }}"><i class="fa fa-list-ul" aria-hidden="true"></i> &nbsp; List</a>
+          " href="{{ route('list.index') }}"><i class="fa fa-list-ul" aria-hidden="true"></i> &nbsp; List Anime</a>
         </li>
         <li class="nav-item">
           <a class="nav-link hover 
@@ -34,6 +34,12 @@
           {{request()->is('admin/searchr') ? 'active' : ''}}
           {{request()->is('admin/request/create') ? 'active' : ''}}
           " href="{{ route('request.index') }}"><i class="fa fa-sticky-note" aria-hidden="true"></i> &nbsp; Request</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link hover 
+          {{request()->is('admin/category') ? 'active' : ''}} 
+          {{request()->is('admin/category/create') ? 'active' : ''}}
+          " href="{{ route('category.index') }}"><i class="fa fa-align-left" aria-hidden="true"></i> &nbsp; Season Category</a>
         </li>
         <li class="nav-item">
           <a class="nav-link logout" href="?page=dashboard&act=logout"><i class="fa fa-power-off" aria-hidden="true"></i> &nbsp; Logout</a>

@@ -34,6 +34,8 @@
                     <th scope="col">Status</th>
                     <th scope="col" colspan="3"><center> Action</center></th>
                 </tr>
+            </thead>
+            <tbody>
                 @forelse ($req as $requests)
                 <tr>
                     <td class="text-center">{{ ++$i }}</td>
@@ -54,6 +56,7 @@
                         </td>
                     </form>
                 </tr>
+            </tbody>
                 @empty
                 <div class="alert alert-danger">
                     Request Anime Not Found.

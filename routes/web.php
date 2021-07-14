@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\GenreController;
 use App\Http\Controllers\admin\AnimeController;
 use App\Http\Controllers\admin\UpdateController;
 use App\Http\Controllers\admin\RequestController;
+use App\Http\Controllers\admin\SeasonCateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +33,5 @@ Route::prefix('admin')
         Route::get('searchu', [UpdateController::class, 'search'])->name('update.search');
         Route::resource('request', RequestController::class);
         Route::get('searchr', [RequestController::class, 'search'])->name('request.search');
+        Route::resource('category', SeasonCateController::class);
     });

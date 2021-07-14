@@ -54,7 +54,7 @@
           @empty
           <tr>
              <td colspan="3" class="text-center">
-                  Data Kosong
+                  Genre Not Found.
               </td>
            </tr>
           @endforelse
