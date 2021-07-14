@@ -44,7 +44,8 @@ class AnimeController extends Controller
             'total_episode'   => 'required',
             'aired' => 'required',
             'duration' => 'required',
-            'synopsis' => 'required'
+            'synopsis' => 'required',
+            'category' => 'required'
         ]);
 
         $cover_image = $request->file('cover_image');
@@ -61,7 +62,8 @@ class AnimeController extends Controller
             'duration' => $request->duration,
             'synopsis' => $request->synopsis,
             'genre' => implode(", ", $request->lgenre),
-            'trailer' => $request->trailer
+            'trailer' => $request->trailer,
+            'category' => $request->category
         ]);
 
         if($list){
@@ -105,6 +107,7 @@ class AnimeController extends Controller
             'aired' => 'required',
             'duration' => 'required',
             'synopsis' => 'required',
+            'category' => 'required'
         ]);
         if($request->file('cover_image') == "") {
 
@@ -118,7 +121,8 @@ class AnimeController extends Controller
                 'duration' => $request->duration,
                 'synopsis' => $request->synopsis,
                 'genre' => implode(", ", $request->lgenre),
-                'trailer' => $request->trailer
+                'trailer' => $request->trailer,
+                'category' => $request->category
             ]);
     
         } else {
@@ -141,7 +145,8 @@ class AnimeController extends Controller
                 'duration' => $request->duration,
                 'synopsis' => $request->synopsis,
                 'genre' => implode(", ", $request->lgenre),
-                'trailer' => $request->trailer
+                'trailer' => $request->trailer,
+                'category' => $request->category
             ]);
     
         }         

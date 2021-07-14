@@ -10,8 +10,8 @@ class RequestController extends Controller
 {
     //
     public function index(){
-        $request = Req::latest()->paginate(10);
-        return view('page.admin.request.index', compact('request'))
+        $req = Req::latest()->paginate(10);
+        return view('page.admin.request.index', compact('req'))
         ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -60,5 +60,10 @@ class RequestController extends Controller
         return redirect()->route('request.index')
                         ->with('success','Data Berhasil Diupdate!');
     }
-
+    
+    public function search(Request $request){
+        $keyword = $request->search;
+        $req = Req::where('title_anime', 'like', "%" . $keyword . "%")->paginate(10);
+        return view('page.admin.request.index', compact('req'))->with('i', (request()->input('page', 1) - 1) * 5);
+    }
 }

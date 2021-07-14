@@ -31,4 +31,5 @@ Route::prefix('admin')
         Route::resource('update', UpdateController::class);
         Route::get('searchu', [UpdateController::class, 'search'])->name('update.search');
         Route::resource('request', RequestController::class);
+        Route::get('searchr', [RequestController::class, 'search'])->name('request.search');
     });

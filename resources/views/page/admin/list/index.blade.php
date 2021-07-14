@@ -39,6 +39,7 @@
                 <th scope="col" width="10%"><center>Synopsis</center></th>
                 <th scope="col">Genre</th>
                 <th scope="col">Trailer</th>
+                <th scope="col">Category</th>
                 <th scope="col" colspan="3"><center> Action</center></th>
                 </tr>
             </thead>
@@ -57,6 +58,7 @@
                     <td scope="row">{{ Str::limit($lists->synopsis, 100) }}</td>
                     <td scope="row">{{ $lists->genre }}</td>
                     <td scope="row"><a style="color: #fafafa" href="https://www.youtube.com/watch?v={{ $lists->trailer }}">https://www.youtube.com/watch?v={{ $lists->trailer }}</a></td>
+                    <td scope="row">{{ $lists->category }}</td>
                     <form action="{{ route('list.destroy',$lists->id) }}" method="POST">
                         <td class="text-center">
                             <a class="btn btn-dark" href="{{ route('list.show',$lists->id) }}"><i class="fa fa-eye show" aria-hidden="true"></i></a>

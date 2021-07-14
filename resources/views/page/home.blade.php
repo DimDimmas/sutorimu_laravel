@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Tempat Stream Anime')
+@section('title', 'Tempat Stream Anime Subtitle Indonesia')
 @section('content')
 <div class="col">
     <!-- anime musiman -->

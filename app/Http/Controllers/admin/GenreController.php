@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Genre;
 use Illuminate\Http\Request;
 use App\Http\Requests\GenreRequest;
+use App\Models\Req;
 
 class GenreController extends Controller
 {
