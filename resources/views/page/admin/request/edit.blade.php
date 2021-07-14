@@ -10,7 +10,7 @@
             <a class="nav-link disabled" href="#">Request List</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" action="{{ route('list.search') }}" method="get">
+        <form class="form-inline my-2 my-lg-0" action="{{ route('request.search') }}" method="get">
             <input class="search" name="search" type="search" placeholder="Search by Title" aria-label="Search">
         </form>
     </nav>
