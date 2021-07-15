@@ -29,6 +29,8 @@
                 <tr>
                 <th scope="col">No</th>
                 <th scope="col">Title List</th>
+                <th scope="col">Studio</th>
+                <th scope="col">Season</th>
                 <th scope="col">Rate</th>
                 <th scope="col">Status</th>
                 <th scope="col">Cover Image</th>
@@ -39,7 +41,6 @@
                 <th scope="col" width="10%"><center>Synopsis</center></th>
                 <th scope="col">Genre</th>
                 <th scope="col">Trailer</th>
-                <th scope="col">Category</th>
                 <th scope="col" colspan="3"><center> Action</center></th>
                 </tr>
             </thead>
@@ -48,6 +49,8 @@
                 <tr>
                     <td class="text-center">{{ ++$i }}</td>
                     <td scope="row">{{ $lists->title_list }}</td>
+                    <td scope="row">{{ $lists->studio }}</td>
+                    <td scope="row">{{ $lists->category }}</td>
                     <td scope="row">{{ $lists->rate }}</td>
                     <td scope="row">{{ $lists->status }}</td>
                     <td scope="row"><img src="{{ Storage::url('public/img/cover/').$lists->cover_image }}" width="70px" alt="{{ $lists->cover_image }}"></td>
@@ -58,7 +61,6 @@
                     <td scope="row">{{ Str::limit($lists->synopsis, 100) }}</td>
                     <td scope="row">{{ $lists->genre }}</td>
                     <td scope="row"><a style="color: #fafafa" href="https://www.youtube.com/watch?v={{ $lists->trailer }}">https://www.youtube.com/watch?v={{ $lists->trailer }}</a></td>
-                    <td scope="row">{{ $lists->category }}</td>
                     <form action="{{ route('list.destroy',$lists->id) }}" method="POST">
                         <td class="text-center">
                             <a class="btn btn-dark" href="{{ route('list.show',$lists->id) }}"><i class="fa fa-eye show" aria-hidden="true"></i></a>
@@ -80,6 +82,7 @@
             @endforelse
             </tbody>
         </table>
+        {{ $list->links() }}
     </div>
 </div>
 @endsection

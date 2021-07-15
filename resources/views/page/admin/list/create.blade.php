@@ -39,6 +39,35 @@
                         </div>
 
                         <div class="form-group">
+                            <label>Studio</label>
+                            <input type="text" class="form-control @error('studio') is-invalid @enderror" name="studio" value="{{ old('studio') }}" placeholder="Input Studio Name">
+                        
+                            <!-- error message untuk title -->
+                            @error('studio')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label>Category Season</label>
+                            <!-- <input type="text" class="form-control @error('status') is-invalid @enderror" name="status" value="{{ old('status') }}" placeholder="Input status Anime"> -->
+                            <select class="form-control @error('status') is-invalid @enderror" name="category" id="category">
+                                <option value="">-- Select --</option>
+                                @foreach($season as $seasons)
+                                <option value="{{ $seasons->name }}">{{ $seasons->name }}</option>
+                                @endforeach
+                            </select>
+                            <!-- error message untuk status -->
+                            @error('category')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
                             <label>Rate</label>
                             <input type="text" class="form-control @error('rate') is-invalid @enderror" name="rate" value="{{ old('rate') }}" placeholder="Input Rate Anime">
                         

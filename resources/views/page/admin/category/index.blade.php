@@ -10,9 +10,9 @@
             <a class="nav-link disabled" href="#">Season List</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" action="{{ route('request.search') }}" method="get">
+        <!-- <form class="form-inline my-2 my-lg-0" action="{{ route('request.search') }}" method="get">
             <input class="search" name="search" type="search" placeholder="Search by Title" aria-label="Search">
-        </form>
+        </form> -->
     </nav>
     <br><br>
     <center><h1><strong>Table Season</strong></h1></center>
@@ -35,12 +35,9 @@
                 </tr>
             </thead>
             <tbody>
-            <?php 
-              $i = 1;
-            ?>
             @forelse ($cate as $cates)
             <tr>
-                <td class="text-center">{{ $i++ }}</td>
+                <td class="text-center">{{ ++$i }}</td>
                 <td scope="row">{{ $cates->name }}</td>
                 <form action="{{ route('category.destroy',$cates->id) }}" method="POST">
                     <td class="text-center">

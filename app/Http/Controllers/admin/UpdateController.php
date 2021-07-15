@@ -12,9 +12,15 @@ class UpdateController extends Controller
 {
     //
     public function index(){
-        $update = Update::latest()->paginate(10);
+        // $update = Update::all();
+        // $sorted = $update->SortByDesc('created_at');
+        // return view('page.admin.update.index', [
+        //     'update' => $sorted
+        // ]);
+
+        $update = update::latest()->paginate(10);
         return view('page.admin.update.index', compact('update'))
-        ->with('i', (request()->input('page', 1) - 1) * 5);
+        ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     public function create(){

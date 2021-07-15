@@ -21,6 +21,7 @@ class Anime extends Model
         'synopsis',
         'genre',
         'trailer',
-        'category'
+        'category',
+        'studio'
     ];
 }

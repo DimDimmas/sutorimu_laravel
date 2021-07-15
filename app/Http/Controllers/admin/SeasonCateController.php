@@ -11,11 +11,15 @@ class SeasonCateController extends Controller
 {
     //
     public function index(){
-        $cate = SeasonCate::all();
+        // $cate = SeasonCate::all();
 
-        return view('page.admin.category.index', [
-            'cate' => $cate
-        ]);
+        // return view('page.admin.category.index', [
+        //     'cate' => $cate
+        // ]);
+
+        $cate = SeasonCate::latest()->paginate(10);
+        return view('page.admin.category.index', compact('cate'))
+        ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     // public function create(){

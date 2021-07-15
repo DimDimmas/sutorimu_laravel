@@ -11,10 +11,6 @@ h1, h2, h3, h4, h5, h6{
     color: #fff
 }
 
-th{
-    /* text-align: center; */
-}
-
 .modal-title{
     color: #343A40 !important;
     font-weight: 600;
@@ -24,7 +20,7 @@ body {
     background-color: #49525a;
 }
 
-li {
+.li-sidebar {
     margin: 5px 10px;
 }
 
@@ -46,6 +42,15 @@ li {
 .active {
     color: #FECA57 !important;
     background-color: #343A40;
+}
+
+.page-item.active .page-link{
+    background-color: #FECA57;
+    border-color: #FECA57;
+}
+
+.page-link{
+    color: #343A40;
 }
 
 .text-gray{

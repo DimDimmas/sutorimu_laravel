@@ -29,6 +29,14 @@
                             <input type="text" class="form-control" value="{{ $list->title_list }}" disabled>
                         </div>
                         <div class="form-group">
+                            <label>Studio</label>
+                            <input type="text" class="form-control" value="{{ $list->studio }}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>Season</label>
+                            <input type="text" class="form-control" value="{{ $list->category }}" disabled>
+                        </div>
+                        <div class="form-group">
                             <label>Rate</label>
                             <input type="text" class="form-control" value="{{ $list->rate }}" disabled>
                         </div>

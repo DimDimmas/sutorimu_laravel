@@ -7,6 +7,7 @@ use App\Models\Anime;
 use App\Models\Genre;
 use App\Models\StatusList;
 use App\Models\TypeList;
+use App\Models\SeasonCate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,21 +15,24 @@ class AnimeController extends Controller
 {
     //
     public function index(){
+        // $list = Anime::all();
+        // $sorted = $list->SortByDesc('created_at');
+        // return view('page.admin.list.index', [
+        //     'list' => $sorted
+        // ]);
+
         $list = Anime::latest()->paginate(10);
         return view('page.admin.list.index', compact('list'))
-        ->with('i', (request()->input('page', 1) - 1) * 5);
+        ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     public function create(){
+        $season = SeasonCate::all();
         $item = Genre::all();
         $status = StatusList::all();
         $type = TypeList::all();
-        return view('page.admin.list.create',compact('item', 'status', 'type'), [
+        return view('page.admin.list.create',compact('item', 'status', 'type', 'season'), [
             'items' => $item
-        ], [
-            'status' => $status
-        ], [
-            'type' => $type
         ]);
     }
 
@@ -63,7 +67,8 @@ class AnimeController extends Controller
             'synopsis' => $request->synopsis,
             'genre' => implode(", ", $request->lgenre),
             'trailer' => $request->trailer,
-            'category' => $request->category
+            'category' => $request->category,
+            'studio' => $request->studio
         ]);
 
         if($list){
@@ -82,15 +87,12 @@ class AnimeController extends Controller
 
     public function edit(Anime $list)
     {        
+        $season = SeasonCate::all();
         $item = Genre::all();
         $status = StatusList::all();
         $type = TypeList::all();
-        return view('page.admin.list.edit',compact('list', 'item', 'status', 'type'), [
+        return view('page.admin.list.edit',compact('list', 'item', 'status', 'type', 'season'), [
             'items' => $item
-        ], [
-            'status' => $status
-        ], [
-            'type' => $type
         ]);
     }
 
@@ -122,7 +124,8 @@ class AnimeController extends Controller
                 'synopsis' => $request->synopsis,
                 'genre' => implode(", ", $request->lgenre),
                 'trailer' => $request->trailer,
-                'category' => $request->category
+                'category' => $request->category,
+                'studio' => $request->studio
             ]);
     
         } else {
@@ -146,7 +149,8 @@ class AnimeController extends Controller
                 'synopsis' => $request->synopsis,
                 'genre' => implode(", ", $request->lgenre),
                 'trailer' => $request->trailer,
-                'category' => $request->category
+                'category' => $request->category,
+                'studio' => $request->studio
             ]);
     
         }         
@@ -174,6 +178,7 @@ class AnimeController extends Controller
     public function search(Request $request){
         $keyword = $request->search;
         $list = Anime::where('title_list', 'like', "%" . $keyword . "%")->paginate(10);
-        return view('page.admin.list.index', compact('list'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('page.admin.list.index', compact('list'))
+        ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 }

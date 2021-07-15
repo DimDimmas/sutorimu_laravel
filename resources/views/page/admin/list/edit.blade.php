@@ -40,6 +40,33 @@
                         </div>
 
                         <div class="form-group">
+                            <label>Studio</label>
+                            <input type="text" class="form-control @error('studio') is-invalid @enderror" name="studio" value="{{ old('studio', $list->studio) }}" placeholder="Input Studio Name">
+                        
+                            <!-- error message untuk title -->
+                            @error('studio')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label>Category Season</label>
+                            <select class="form-control @error('category') is-invalid @enderror" name="category" id="category">
+                                @foreach($season as $seasons)
+                                <option value="{{ $seasons->name }}" @if($seasons->name === $list->type) selected @endif>{{ $seasons->name }}</option>
+                                @endforeach
+                            </select>
+                            <!-- error message untuk type -->
+                            @error('type')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
                             <label>Rate</label>
                             <input type="text" class="form-control @error('rate') is-invalid @enderror" name="rate" value="{{ old('rate', $list->rate) }}" placeholder="Input Rate Anime">
                         

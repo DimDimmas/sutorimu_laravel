@@ -10,9 +10,15 @@ class RequestController extends Controller
 {
     //
     public function index(){
+        // $req = Req::all();
+        // $sorted = $req->SortByDesc('created_at');
+        // return view('page.admin.request.index',[
+        //     'req' => $sorted
+        // ]);
+
         $req = Req::latest()->paginate(10);
         return view('page.admin.request.index', compact('req'))
-        ->with('i', (request()->input('page', 1) - 1) * 5);
+        ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     public function show(Req $request)
@@ -63,7 +69,8 @@ class RequestController extends Controller
     
     public function search(Request $request){
         $keyword = $request->search;
-        $req = Req::where('title_anime', 'like', "%" . $keyword . "%")->paginate(10);
-        return view('page.admin.request.index', compact('req'))->with('i', (request()->input('page', 1) - 1) * 5);
+        $req = Req::where('status', 'like', "%" . $keyword . "%")->paginate(10);
+        return view('page.admin.request.index', compact('req'))
+        ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 }
