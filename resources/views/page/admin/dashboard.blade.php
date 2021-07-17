@@ -3,7 +3,7 @@
 @section('content')
 <div class="main">
     <div style="margin-top: 30%; color: #FECA57">
-      <center><h1><strong> WELCOME ADMIN</strong></h1></center>
+      <center><h1><strong> WELCOME ADMIN {{Auth::user()->name}}</strong></h1></center>
     </div>
   </div>
 @endsection

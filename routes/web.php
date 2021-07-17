@@ -23,6 +23,8 @@ use App\Http\Controllers\admin\SeasonCateController;
 Route::get('/', [HomeController::class, 'index']);
 
 Route::prefix('admin')
+    ->namespace('Admin')
+    ->middleware(['auth','admin'])
     ->group(function() {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('genre', GenreController::class);
@@ -35,3 +37,6 @@ Route::prefix('admin')
         Route::get('searchr', [RequestController::class, 'search'])->name('request.search');
         Route::resource('category', SeasonCateController::class);
     });
+
+Auth::routes();
+

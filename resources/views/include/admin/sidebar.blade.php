@@ -42,7 +42,11 @@
           " href="{{ route('category.index') }}"><i class="fa fa-align-left" aria-hidden="true"></i> &nbsp; Season Category</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link logout" href="?page=dashboard&act=logout"><i class="fa fa-power-off" aria-hidden="true"></i> &nbsp; Logout</a>
+          <form action="{{ url('logout') }}" method="POST">
+          @csrf
+          <button class="nav-link logout btn-warning" type="submit"><i class="fa fa-power-off" aria-hidden="true"></i> &nbsp; Logout</button>
+          </form>
+          
         </li>
     </ul>
   </div>
