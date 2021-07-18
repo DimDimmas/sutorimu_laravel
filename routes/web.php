@@ -20,7 +20,7 @@ use App\Http\Controllers\admin\SeasonCateController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')
     ->namespace('Admin')
