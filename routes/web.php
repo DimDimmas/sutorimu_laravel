@@ -45,4 +45,5 @@ Route::prefix('admin')
         Route::get('searchr', [RequestController::class, 'search'])->name('request.search');
         Route::resource('category', SeasonCateController::class);
     });
-    Auth::routes();
+    
+Auth::routes();

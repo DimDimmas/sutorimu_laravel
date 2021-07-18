@@ -68,7 +68,7 @@
             <div class="row">
                 <div class="col"><strong><h5>Movie</h5></strong></div>
             
-                <div class="col"><a href="movie.php" class="button-movie">More</a>
+                <div class="col"><a href="{{ url('movie-list') }}" class="button-movie">More</a>
                 </div>
             </div>
         </div>

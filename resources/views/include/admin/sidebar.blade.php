@@ -45,7 +45,7 @@
           <form action="{{ url('logout') }}" method="POST">
           @csrf
           <button class="nav-link logout btn-warning" type="submit"><i class="fa fa-power-off" aria-hidden="true"></i> &nbsp; Logout</button>
-          </form>
+          </form>          
         </li>
     </ul>
   </div>
