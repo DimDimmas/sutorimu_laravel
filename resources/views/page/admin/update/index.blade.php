@@ -63,6 +63,7 @@
         @endforelse
         </tbody>
     </table>
+    {{ $update->links() }}
     </div>
 </div>
 

@@ -2,12 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HomeGenreController;
+use App\Http\Controllers\HomeListController;
+use App\Http\Controllers\HomeRequestController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\GenreController;
 use App\Http\Controllers\admin\AnimeController;
 use App\Http\Controllers\admin\UpdateController;
 use App\Http\Controllers\admin\RequestController;
 use App\Http\Controllers\admin\SeasonCateController;
+use App\Http\Controllers\HomeMovieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +24,15 @@ use App\Http\Controllers\admin\SeasonCateController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::resource('genre-list', HomeGenreController::class);
+Route::resource('anime-list', HomeListController::class);
+Route::resource('movie-list', HomeMovieController::class);
+Route::resource('request-anime', HomeRequestController::class);
+Route::get('search', [HomeListController::class, 'search'])->name('search');
 
 Route::prefix('admin')
+    ->middleware(['auth','admin'])
     ->group(function() {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('genre', GenreController::class);
@@ -35,3 +45,4 @@ Route::prefix('admin')
         Route::get('searchr', [RequestController::class, 'search'])->name('request.search');
         Route::resource('category', SeasonCateController::class);
     });
+    Auth::routes();
