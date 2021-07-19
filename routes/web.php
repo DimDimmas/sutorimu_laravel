@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\UpdateController;
 use App\Http\Controllers\admin\RequestController;
 use App\Http\Controllers\admin\SeasonCateController;
 use App\Http\Controllers\HomeMovieController;
+use App\Http\Controllers\StreamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,7 @@ Route::resource('anime-list', HomeListController::class);
 Route::resource('movie-list', HomeMovieController::class);
 Route::resource('request-anime', HomeRequestController::class);
 Route::get('search', [HomeListController::class, 'search'])->name('search');
+Route::get('/stream/{id}', [StreamController::class, 'index'])->name('stream');
 
 Route::prefix('admin')
     ->middleware(['auth','admin'])

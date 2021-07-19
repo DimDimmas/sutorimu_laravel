@@ -39,7 +39,7 @@
         </div>
         @forelse ($update as $updates)
         <div class="box-item">
-            <a href="anime.html">
+            <a href="{{ route('stream', $updates->id) }}">
                 <div class="image-update">
                     <img src="{{ Storage::url('public/img/preview/').$updates->preview }}" alt="preview">
                 </div>

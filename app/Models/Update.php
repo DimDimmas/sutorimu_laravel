@@ -15,4 +15,8 @@ class Update extends Model
         'embed_link',
         'preview'
     ];
+
+    public function anime(){
+        return $this->belongsTo(Anime::class, 'title_update', 'title_list');
+    }
 }

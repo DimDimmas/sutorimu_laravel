@@ -24,4 +24,5 @@ class Anime extends Model
         'category',
         'studio'
     ];
+
 }
