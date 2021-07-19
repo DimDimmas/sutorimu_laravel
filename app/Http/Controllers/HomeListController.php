@@ -10,7 +10,7 @@ class HomeListController extends Controller
 {
     //
     public function Index(){        
-        $anime = Anime::where('type', '=', 'TV')->get();
+        $anime = Anime::orderBy('title_list')->where('type', '=', 'TV')->get();
         return view('page.list', [
             'anime' => $anime
             ]);

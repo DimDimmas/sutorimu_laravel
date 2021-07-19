@@ -6,22 +6,22 @@
         <div class="col">
             <div class="ongoing">
                 <div class="title-ongoing">
-                    <strong><h4>{{ $items->title_update }} {{ $items->episode }}</h4></strong>
+                    <strong><h4>{{ $items->title_update }} Episode {{ $items->episode }}</h4></strong>
                 </div>
                 <div class="row">
                     <div class="col-sm-8">
                         <div class="ongoing">
                             <div class="video-stream">
-                                <video width="100%" height="100%" controls>
-                                    <source src='assets/video/MKR S2 - 04 [480p].mp4' type='video/MP4'>
-                                </video>
+                                <!-- <video width="100%" height="100%" controls> -->
+                                    <iframe src="https://mega.nz/embed/{{ $items->embed_link }}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+                                <!-- </video> -->
                             </div>
                         </div>
-                        <ul class="pagination pagination-sm justify-content-center" style="clear: both;">
+                        <!-- <ul class="pagination pagination-sm justify-content-center" style="clear: both;">
                             <li class="page-item"><a class="page-link paging page" href="#">360p</a></li>
                             <li class="page-item"><a class="page-link paging page-active" href="#">480p</a></li>
                             <li class="page-item"><a class="page-link paging" href="#">720p</a></li>
-                        </ul>
+                        </ul> -->
                         <div class="container-sinopsis">
                             <div class="title-ongoing">
                                 <h5>Synopsis</h5>
@@ -91,15 +91,15 @@
                                         <th>#Episode</th>
                                     </tr>
                                 </thead>
+                                @forelse($ep as $eps)
                                 <tr>
-                                    <td><a href="#">Episode 1</a></td>
+                                    <td><a href="{{ route('stream', $eps->id) }}">{{ $eps->episode }}</a></td>
                                 </tr>
+                                @empty
                                 <tr>
-                                    <td><a href="#">Episode 2</a></td>
+                                    <td><a href="#">Not Found</a></td>
                                 </tr>
-                                <tr>
-                                    <td><a href="#">Episode 3</a></td>
-                                </tr>
+                                @endforelse
                             </table>
                         </div>
                     </div>

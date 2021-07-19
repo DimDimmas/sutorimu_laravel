@@ -9,10 +9,11 @@ class StreamController extends Controller
 {
     public function index($id)
     {
-        $item = Update::with(['anime'])
-        ->findOrFail($id);
+        $item = Update::with(['anime'])->findOrFail($id);
+        $ep = Update::all()->where('title_update', '=', $item->title_update);
         return view('page.stream', [
-            'items' => $item
+            'items' => $item,
+            'ep' => $ep
         ]);
     }
 }
