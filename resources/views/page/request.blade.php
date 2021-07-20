@@ -48,7 +48,7 @@
                 </div>
                 @forelse ($anime as $animes)
                 <div class="box-item recomended">
-                    <a href="">
+                    <a href="{{ route('anime', $animes->title_list) }}">
                         <div class="image-update">
                             <img src="{{ Storage::url('public/img/cover/').$animes->cover_image }}" alt="ongoing" class="image-ongoing">
                             <div class="rating"><i class="fas fa-star"></i> {{ $animes->rate }}</div>

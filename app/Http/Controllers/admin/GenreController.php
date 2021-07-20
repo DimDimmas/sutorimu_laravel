@@ -17,7 +17,7 @@ class GenreController extends Controller
      */
     public function index()
     {
-        $item = Genre::all();
+        $item = Genre::all()->sortBy('genre');
 
         return view('page.admin.genre.index', [
             'items' => $item

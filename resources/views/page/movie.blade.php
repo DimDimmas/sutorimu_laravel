@@ -15,9 +15,10 @@
                     <li class="page-item"><a class="page-link paging page-active" href="#">A</a></li>
                     <li class="page-item"><a class="page-link paging" href="#">B</a></li>
                 </ul> -->
-                <div class="box-list">
+                <div class="box-list">                
                 @forelse ($anime as $animes)
                     <div class="container-ongoing">
+                    
                         <img src="{{ Storage::url('public/img/cover/').$animes->cover_image }}" alt="list" class="image-ongoing">
                         <div class="rating"><i class="fas fa-star"></i> {{ $animes->rate }} </div>
                         <div class="middle-ongoing">
@@ -25,6 +26,7 @@
                         </div>
                         <div class="desc-ongoing">{{ $animes->title_list }}</div>
                         <div class="status-ongoing">{{ $animes->status }}</div>
+                    </a>
                     </div>
                     @empty
                     <div class="alert alert-danger">

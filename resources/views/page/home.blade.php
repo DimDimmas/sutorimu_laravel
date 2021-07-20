@@ -5,12 +5,12 @@
     <!-- anime musiman -->
     <div class="ongoing">
         <div class="title-ongoing">
-            <strong><h5>Anime Fall 2020</h5></strong>
+            <strong><h5>Anime Summer 2021</h5></strong>
         </div>
         <div class="ongoing-slider">
         @forelse ($seanime as $seanimes)
             <div class="container-ongoing">
-                <a href="#">
+                <a href="{{ route('anime', $seanimes->title_list) }}">
                     <img src="{{ Storage::url('public/img/cover/').$seanimes->cover_image }}" alt="ongoing" class="image-ongoing">
                     <div class="rating"><i class="fas fa-star"></i> {{ $seanimes->rate }}</div>
                     <div class="middle-ongoing">
@@ -75,7 +75,7 @@
         <div class="movie-slider">
         @forelse ($movie as $movies)
             <div class="container-ongoing container-movie">
-                <a href="#">
+                <a href="{{ route('anime', $movies->title_list) }}">
                     <img src="{{ Storage::url('public/img/cover/').$movies->cover_image }}" alt="ongoing" class="image-ongoing">
                     <div class="rating"><i class="fas fa-star"></i> {{ $movies->rate }}</div>
                     <div class="middle-ongoing middle-movie">
@@ -103,7 +103,7 @@
         </div>
         <ul class="ul-genre">
         @forelse ($items as $item)
-            <li><a href="#">{{ $item->genre }}</a></li>
+            <li><a href="{{ route('genre', $item->genre) }}">{{ $item->genre }}</a></li>
         @empty
             <li><a href="#">Genre Not Found</li>
         @endforelse
@@ -118,7 +118,7 @@
         </div>
         <ul class="ul-genre">
         @forelse ($cate as $cates)
-            <li><a href="#">{{ $cates->name }}</a></li>
+            <li><a href="{{ route('season', $cates->name) }}">{{ $cates->name }}</a></li>
         @empty
             <li><a href="#">Season Not Found</li>
         @endforelse

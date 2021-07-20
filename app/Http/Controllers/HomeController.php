@@ -20,7 +20,7 @@ class HomeController extends Controller
             ->join('animes', 'animes.title_list', '=', 'updates.title_update')
             ->select('updates.*', 'animes.genre')
             ->paginate(10);
-        $item = Genre::all();
+        $item = Genre::all()->sortBy('genre');
         $season = SeasonCate::all()->sortBy('name');
         $seanime = Anime::all()->where('category', '=', 'Summer 2021');
         $movie = Anime::all()->where('type', '=', 'Movie');

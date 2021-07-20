@@ -11,6 +11,12 @@
                     <strong><h5>Anime List</h5></strong>
                 </div> 
                 <br>
+                @if ($message = Session::get('success'))
+                <div class="title-ongoing" style="border-bottom: 0px; padding-left: 50px;">
+                    <p>Result of : <i>{{ $message }}</i></p>
+                </div> 
+                @endif
+                <!-- <br> -->
                 <!-- <ul class="pagination pagination-sm justify-content-center" style="clear: both;">
                     <li class="page-item"><a class="page-link paging page-active" href="#">A</a></li>
                     <li class="page-item"><a class="page-link paging" href="#">B</a></li>
@@ -18,6 +24,7 @@
                 <div class="box-list">
                 @forelse ($anime as $animes)
                     <div class="container-ongoing">
+                    <a href="{{ route('anime', $animes->title_list) }}">
                         <img src="{{ Storage::url('public/img/cover/').$animes->cover_image }}" alt="list" class="image-ongoing">
                         <div class="rating"><i class="fas fa-star"></i> {{ $animes->rate }} </div>
                         <div class="middle-ongoing">
@@ -25,10 +32,11 @@
                         </div>
                         <div class="desc-ongoing">{{ $animes->title_list }}</div>
                         <div class="status-ongoing">{{ $animes->status }}</div>
+                    </a>
                     </div>
                     @empty
                     <div class="alert alert-danger">
-                        Anime Updates Not Found.
+                        Anime Not Found.
                     </div>
                 @endforelse
                 </div>

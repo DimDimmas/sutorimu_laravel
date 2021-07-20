@@ -28,7 +28,7 @@ class AnimeController extends Controller
 
     public function create(){
         $season = SeasonCate::all();
-        $item = Genre::all();
+        $item = Genre::all()->sortBy('genre');
         $status = StatusList::all();
         $type = TypeList::all();
         return view('page.admin.list.create',compact('item', 'status', 'type', 'season'), [
@@ -88,7 +88,7 @@ class AnimeController extends Controller
     public function edit(Anime $list)
     {        
         $season = SeasonCate::all();
-        $item = Genre::all();
+        $item = Genre::all()->sortBy('genre');
         $status = StatusList::all();
         $type = TypeList::all();
         return view('page.admin.list.edit',compact('list', 'item', 'status', 'type', 'season'), [

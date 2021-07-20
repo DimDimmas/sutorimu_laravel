@@ -11,7 +11,7 @@
                 </div>
                 <div class="container-genre" id="container-genre">
                     @forelse ($items as $item)
-                    <a href="" class="box-genre">{{ $item->genre }}</a>
+                    <a href="{{ route('genre', $item->genre) }}" class="box-genre">{{ $item->genre }}</a>
                     @empty
                     <a class="box-genre">Data Not Found</a>
                     @endforelse
@@ -28,7 +28,7 @@
                 </div>
                 @forelse ($anime as $animes)
                 <div class="box-item recomended">
-                    <a href="">
+                    <a href="{{ route('anime', $animes->title_list) }}">
                         <div class="image-update">
                             <img src="{{ Storage::url('public/img/cover/').$animes->cover_image }}" alt="ongoing" class="image-ongoing">
                             <div class="rating"><i class="fas fa-star"></i> {{ $animes->rate }}</div>

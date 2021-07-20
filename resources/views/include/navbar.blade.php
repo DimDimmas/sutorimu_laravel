@@ -12,7 +12,9 @@
         </li>
         <li class="nav-item
         {{request()->is('anime-list') ? 'l-active' : ''}}
-        {{request()->is('search') ? 'l-active' : ''}}">
+        {{request()->is('search') ? 'l-active' : ''}}
+        {{request()->is('genre/') ? 'l-active' : ''}}
+        {{request()->is('season/') ? 'l-active' : ''}}">
           <a class="nav-link" href="{{ url('anime-list') }}">Anime List</a>
         </li>
         <li class="nav-item 

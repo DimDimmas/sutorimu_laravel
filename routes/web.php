@@ -5,14 +5,16 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeGenreController;
 use App\Http\Controllers\HomeListController;
 use App\Http\Controllers\HomeRequestController;
+use App\Http\Controllers\HomeMovieController;
+use App\Http\Controllers\StreamController;
+use App\Http\Controllers\DetailController;
+
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\GenreController;
 use App\Http\Controllers\admin\AnimeController;
 use App\Http\Controllers\admin\UpdateController;
 use App\Http\Controllers\admin\RequestController;
 use App\Http\Controllers\admin\SeasonCateController;
-use App\Http\Controllers\HomeMovieController;
-use App\Http\Controllers\StreamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +34,9 @@ Route::resource('movie-list', HomeMovieController::class);
 Route::resource('request-anime', HomeRequestController::class);
 Route::get('search', [HomeListController::class, 'search'])->name('search');
 Route::get('/stream/{id}', [StreamController::class, 'index'])->name('stream');
+Route::get('/anime/{title_list}', [DetailController::class, 'index'])->name('anime');
+Route::get('/genre/{genre}', [HomeListController::class, 'genre'])->name('genre');
+Route::get('/season/{season}', [HomeListController::class, 'season'])->name('season');
 
 Route::prefix('admin')
     ->middleware(['auth','admin'])

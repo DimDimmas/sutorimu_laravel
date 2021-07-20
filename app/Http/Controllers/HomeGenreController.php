@@ -17,4 +17,5 @@ class HomeGenreController extends Controller
             'anime' => $anime
         ]);
     }
+
 }
