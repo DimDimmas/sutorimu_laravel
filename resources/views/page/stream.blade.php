@@ -48,6 +48,11 @@
                                 <div class="desc-info">
                                     <table>
                                         <tr>
+                                            <td>Studio</td>
+                                            <td>:</td>
+                                            <td>{{ $items->anime->studio }}</td>
+                                        </tr>
+                                        <tr>
                                             <td width="70px">Score</td>
                                             <td>:</td>
                                             <td><i class="fa fa-star" aria-hidden="true"></i> {{ $items->anime->rate }}</td>
@@ -66,6 +71,11 @@
                                             <td>Total Episode</td>
                                             <td>:</td>
                                             <td>{{ $items->anime->total_episode }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Season</td>
+                                            <td>:</td>
+                                            <td>{{ $items->anime->category }}</td>
                                         </tr>
                                         <tr>
                                             <td>Aired</td>

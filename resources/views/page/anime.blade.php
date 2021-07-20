@@ -47,7 +47,12 @@
                                     <div class="title-update title-info" style="margin-top: 0;">{{ $items->title_list }}</div>
                                 </a>
                                 <div class="desc-info">
-                                    <table>
+                                <table>
+                                        <tr>
+                                            <td>Studio</td>
+                                            <td>:</td>
+                                            <td>{{ $items->studio }}</td>
+                                        </tr>
                                         <tr>
                                             <td width="70px">Score</td>
                                             <td>:</td>
@@ -67,6 +72,11 @@
                                             <td>Total Episode</td>
                                             <td>:</td>
                                             <td>{{ $items->total_episode }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Season</td>
+                                            <td>:</td>
+                                            <td>{{ $items->category }}</td>
                                         </tr>
                                         <tr>
                                             <td>Aired</td>
